@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%-title%></title>
+</head>
+
+<body>
+    <div>
+        <%-content%>
+    </div>
+    <div>
+        <span class="num">5</span>秒后页面即将跳转
+    </div>
+    <div>
+        <a href="<%-href%>"><%-hrefText%></a>
+    </div>
+    <script>
+        let num = 5;
+        setInterval(() => {
+            num--;
+            if (num < 0) {
+                location.href = '<%-href%>'
+            } else {
+                let text = document.querySelector('.num')
+                text.innerHTML = num
+            }
+        }, 1000);
+    </script>
+</body>
+
+</html>
